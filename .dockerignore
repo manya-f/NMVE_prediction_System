@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+__pycache__
+*.pyc
+.git
+.env
+.env.local
+.DS_Store
+frontend/build
+frontend/node_modules

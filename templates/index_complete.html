@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NVMe Failure Predictor — Drive Health Analytics</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="background-gradient"></div>
+
+  <main class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <h1>NVMe Drive Health Predictor</h1>
+        <p>Real-time ML-powered failure mode detection</p>
+      </div>
+    </header>
+
+    <!-- Main Grid -->
+    <div class="grid">
+      <!-- Input Card -->
+      <section class="card input-card">
+        <h2>Drive Telemetry</h2>
+        <form id="predictForm">
+          <div class="form-group">
+            <label for="temperature">Temperature (°C)</label>
+            <input
+              type="number"
+              id="temperature"
+              name="temperature"
+              step="0.1"
+              value="45"
+              required
+            />
+            <span class="field-hint">Typical: 40-70°C</span>
+          </div>
+
+          <div class="form-group">
+            <label for="power_on_hours">Power-On Hours</label>
+            <input
+              type="number"
+              id="power_on_hours"
+              name="power_on_hours"
+              value="15000"
+              required
+            />
+            <span class="field-hint">Total lifetime hours</span>
+          </div>
+
+          <div class="form-group">
+            <label for="life_used">Life Used (%)</label>
+            <input
+              type="number"
+              id="life_used"
+              name="life_used"
+              min="0"
+              max="100"
+              value="50"
+              required
+            />
+            <span class="field-hint">0-100%</span>
+          </div>
+
+          <div class="form-group">
+            <label for="unsafe_shutdowns">Unsafe Shutdowns</label>
+            <input
+              type="number"
+              id="unsafe_shutdowns"
+              name="unsafe_shutdowns"
+              value="0"
+              min="0"
+            />
+            <span class="field-hint">Optional (default: 0)</span>
+          </div>
+
+          <div class="form-group">
+            <label for="media_errors">Media Errors</label>
+            <input
+              type="number"
+              id="media_errors"
+              name="media_errors"
+              value="0"
+              min="0"
+            />
+            <span class="field-hint">Optional (default: 0)</span>
+          </div>
+
+          <button type="submit" class="button-primary">Analyze Drive</button>
+        </form>
+
+        <!-- Quick Samples -->
+        <div class="samples-section">
+          <h3>Quick Samples</h3>
+          <div class="samples-grid">
+            <button type="button" class="sample-btn" data-sample="healthy">
+              ✓ Healthy
+            </button>
+            <button type="button" class="sample-btn" data-sample="wearout">
+              ⏳ Wear-Out
+            </button>
+            <button type="button" class="sample-btn" data-sample="thermal">
+              🔥 Thermal
+            </button>
+            <button type="button" class="sample-btn" data-sample="power">
+              ⚡ Power
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results Card -->
+      <section class="card results-card">
+        <div id="resultContainer" class="result-placeholder">
+          <div class="placeholder-content">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 6v6l4 2"></path>
+            </svg>
+            <p>Submit drive metrics to see analysis</p>
+          </div>
+        </div>
+
+        <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+          <div class="spinner"></div>
+          <p>Analyzing drive...</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

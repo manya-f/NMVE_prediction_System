@@ -1,0 +1,422 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.background-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0f172a 0%, #1a1f35 50%, #0f172a 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ============================================================================
+   Layout & Container
+   ========================================================================== */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  padding: 40px 20px;
+  margin-bottom: 40px;
+}
+
+.header-content h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.header-content p {
+  font-size: 1rem;
+  color: #cbd5e1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================================
+   Cards
+   ========================================================================== */
+
+.card {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 20px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(148, 163, 184, 0.3);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+.card h3 {
+  font-size: 0.95rem;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* ============================================================================
+   Form Styling
+   ========================================================================== */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 12px;
+  background: rgba(30, 41, 59, 0.8);
+  color: #f1f5f9;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #60a5fa;
+  background: rgba(30, 41, 59, 0.95);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+}
+
+.field-hint {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* ============================================================================
+   Buttons
+   ========================================================================== */
+
+.button-primary {
+  width: 100%;
+  padding: 14px 20px;
+  margin-top: 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.button-primary:active {
+  transform: translateY(0);
+}
+
+/* ============================================================================
+   Quick Samples
+   ========================================================================== */
+
+.samples-section {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.samples-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.sample-btn {
+  padding: 10px 14px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 10px;
+  background: rgba(71, 85, 105, 0.2);
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sample-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #fff;
+}
+
+/* ============================================================================
+   Loading Spinner
+   ========================================================================== */
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  gap: 16px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(148, 163, 184, 0.2);
+  border-top-color: #60a5fa;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-spinner p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+/* ============================================================================
+   Results
+   ========================================================================== */
+
+.result-placeholder {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+}
+
+.placeholder-content {
+  text-align: center;
+}
+
+.placeholder-content svg {
+  opacity: 0.5;
+  margin-bottom: 12px;
+}
+
+/* ============================================================================
+   Result Content
+   ========================================================================== */
+
+.health-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.health-badge.healthy {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.health-badge.failing {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.predicted-mode {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.predicted-mode h3 {
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+}
+
+.predicted-mode .mode-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #60a5fa;
+  margin-bottom: 4px;
+}
+
+.predicted-mode .mode-description {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+/* ============================================================================
+   Failure Modes List
+   ========================================================================== */
+
+.failure-modes-section h3 {
+  margin-top: 24px;
+}
+
+.failure-mode-item {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+}
+
+.failure-mode-item:hover {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+.mode-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.mode-header .name {
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.mode-header .percentage {
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(148, 163, 184, 0.1);
+  color: #cbd5e1;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(148, 163, 184, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #60a5fa, #3b82f6);
+  transition: width 0.4s ease-in-out;
+  border-radius: 3px;
+}
+
+/* ============================================================================
+   Error Display
+   ========================================================================== */
+
+.error-message {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  color: #fca5a5;
+  margin-bottom: 16px;
+}
+
+.error-message strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #ef4444;
+}
+
+/* ============================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .card {
+    padding: 24px;
+  }
+
+  .samples-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mode-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mode-header .percentage {
+    margin-top: 8px;
+  }
+}
